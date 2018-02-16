@@ -71,6 +71,7 @@ scripts = {
 			0x0935,
 		],
 		'suffix_joining_consonants': [0x0930],
+		'prefix_joining_pairs': [(0x0930, 0x0930)],
 		'vowels': [
 			0x093A, # DEVANAGARI VOWEL SIGN OE
 			0x093B, # DEVANAGARI VOWEL SIGN OOE
@@ -140,6 +141,7 @@ scripts = {
 			0x09AF,
 			0x09B0,
 		],
+		'prefix_joining_pairs': [(0x09B0, 0x09B0), (0x9F0, 0x9B0)],
 		'vowels': [
 			0x09BE, # BENGALI VOWEL SIGN AA
 			0x09BF, # BENGALI VOWEL SIGN I
@@ -150,8 +152,8 @@ scripts = {
 			0x09C4, # BENGALI VOWEL SIGN VOCALIC RR
 			0x09C7, # BENGALI VOWEL SIGN E
 			0x09C8, # BENGALI VOWEL SIGN AI
-			0x09CB, # BENGALI VOWEL SIGN O
-			0x09CC, # BENGALI VOWEL SIGN AU
+			# 0x09CB, # BENGALI VOWEL SIGN O
+			# 0x09CC, # BENGALI VOWEL SIGN AU
 			0x09E2, # BENGALI VOWEL SIGN VOCALIC L
 			0x09E3, # BENGALI VOWEL SIGN VOCALIC LL
 		],
@@ -205,14 +207,15 @@ scripts = {
 			0x0C44, # TELUGU VOWEL SIGN VOCALIC RR
 			0x0C46, # TELUGU VOWEL SIGN E
 			0x0C47, # TELUGU VOWEL SIGN EE
-			0x0C48, # TELUGU VOWEL SIGN AI
+			# 0x0C48, # TELUGU VOWEL SIGN AI
 			0x0C4A, # TELUGU VOWEL SIGN O
 			0x0C4B, # TELUGU VOWEL SIGN OO
 			0x0C4C, # TELUGU VOWEL SIGN AU
 			0x0C62, # TELUGU VOWEL SIGN VOCALIC L
 			0x0C63, # TELUGU VOWEL SIGN VOCALIC LL
 		],
-		'virama': 0x0C4D
+		'virama': 0x0C4D,
+		'prefix_joining_pairs': []
 	}
 }
 
@@ -222,4 +225,5 @@ for script in scripts.values():
 	for consonant1 in script['consonants']:
 		for consonant2 in script['suffix_joining_consonants']:
 			for vowel in script['vowels']:
-				print(chr(consonant1) + chr(script['virama']) + chr(consonant2) + chr(0x200C) + chr(vowel))
+				if (consonant1, consonant2) not in script['prefix_joining_pairs']:
+					print(chr(consonant1) + chr(script['virama']) + chr(consonant2) + chr(0x200C) + chr(vowel))
