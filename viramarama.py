@@ -137,7 +137,8 @@ scripts = {
 			0x09B9,
 		],
 		'suffix_joining_consonants': [
-			0x09B0
+			0x09AF,
+			0x09B0,
 		],
 		'vowels': [
 			0x09BE, # BENGALI VOWEL SIGN AA
