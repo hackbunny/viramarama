@@ -1,4 +1,4 @@
-# viramarama.py -- outputs all known strings with a very high chance (~93%) to trigger the
+# viramarama.py -- outputs all known strings with a very high chance (>99%) to trigger the
 # iOS <= 11.3/macOS 10.13.3 CoreText crash. Requires Python 3
 #
 # Copyright 2018 hackbunny <hackbunny@gmail.com>
@@ -30,7 +30,7 @@
 #    Bengali_alphabet>
 #  - Wikipedia contributors, "Telugu script" <https://en.wikipedia.org/wiki/Telugu_script>
 #
-# Note: the script outputs 19609 unique strings, but only 18270 (or about 93%) seem to
+# Note: the script outputs 18644 unique strings, of which 18622 (or over 99%) seem to
 # crash a test application
 
 scripts = {
