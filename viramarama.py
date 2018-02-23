@@ -140,6 +140,7 @@ scripts = {
 		'suffix_joining_consonants': [
 			0x09AF,
 			0x09B0,
+			0x09F0,
 		],
 		'prefix_joining_pairs': [(0x09B0, 0x09B0), (0x9F0, 0x9B0)],
 		'vowels': [
